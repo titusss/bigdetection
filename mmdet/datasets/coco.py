@@ -55,7 +55,7 @@ class CocoDataset(CustomDataset):
         total_ann_ids = []
         for i in self.img_ids:
             info = self.coco.load_imgs([i])[0]
-            info['filename'] = info['file_name']
+            info['filename'] = str(info["id"]).zfill(12)+".jpg"
             data_infos.append(info)
             ann_ids = self.coco.get_ann_ids(img_ids=[i])
             total_ann_ids.extend(ann_ids)
