@@ -89,7 +89,7 @@ test_pipeline = [
 samples_per_gpu=1
 data = dict(samples_per_gpu=samples_per_gpu,
             train=dict(
-                # seg_prefix=data_root + 'stuffthingmaps/train2017/',
+                seg_prefix=data_root + 'stuffthingmaps/train2017/',
                 # seg_prefix=data_root + '/train/',
                 pipeline=train_pipeline),
             val=dict(pipeline=test_pipeline),
