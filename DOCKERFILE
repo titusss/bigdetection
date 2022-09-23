@@ -1,3 +1,6 @@
+FROM nvidia/cuda:11.3-base
+CMD nvidia-smi
+
 ARG PYTORCH="1.9.0"
 ARG CUDA="11.1"
 ARG CUDNN="8"
@@ -45,7 +48,7 @@ WORKDIR /
 # BigDetection
 #
 
-RUN git https://github.com/titusss/bigdetection.git
+RUN git clone https://github.com/titusss/bigdetection.git
 WORKDIR /bigdetection
 # RUN git checkout c3289adf62e7f82b7fa1523fea4ebdf99c0322ee
 
