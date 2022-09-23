@@ -132,9 +132,9 @@ tools/dist_train.sh configs/BigDetection/deformable_detr/deformable_detr_r50_16x
 
 ***Fine-tuning***
 
-To fine-tune a BigDetection pre-trained CBNetV2 (with Swin-Base backbone) on COCO, run: (`PRETRAIN_MODEL` should be BigDetection pre-trained checkpoint of CBNetV2: [model](https://big-detection.s3.us-west-2.amazonaws.com/bigdet_cpts/mmdetection_cpts/htc_cbv2_swin_base_giou_4conv1f_bigdet.pth))
+To fine-tune a BigDetection pre-trained CBNetV2 (with Swin-Base backbone) on FACSED, run: (`PRETRAIN_MODEL` should be BigDetection pre-trained checkpoint of CBNetV2: [model](https://big-detection.s3.us-west-2.amazonaws.com/bigdet_cpts/mmdetection_cpts/htc_cbv2_swin_base_giou_4conv1f_bigdet.pth))
 ```
-tools/dist_train.sh configs/BigDetection/cbnetv2/htc_cbv2_swin_base_giou_4conv1f_adamw_20e_coco.py 8 \
+tools/dist_train.sh configs/BigDetection/cbnetv2/htc_cbv2_swin_base_giou_4conv1f_adamw_20e_facsed.py 8 \
     --cfg-options load_from=<PRETRAIN_MODEL>
 ```
 
