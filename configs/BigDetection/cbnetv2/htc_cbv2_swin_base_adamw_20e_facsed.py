@@ -54,7 +54,7 @@ img_norm_cfg = dict(
 # augmentation strategy originates from HTC
 train_pipeline = [
     dict(type="LoadImageFromFile"),
-    dict(type="LoadAnnotations", with_bbox=True, with_mask=True, with_seg=True),
+    dict(type="LoadAnnotations", with_bbox=True, with_mask=True, with_seg=False),
     dict(
         type="Resize",
         img_scale=[(1600, 400), (1600, 1400)],
@@ -91,9 +91,7 @@ test_pipeline = [
 samples_per_gpu = 1
 data = dict(
     samples_per_gpu=samples_per_gpu,
-    train=dict(
-        seg_prefix=data_root + "stuffthingmaps/train2017/", pipeline=train_pipeline
-    ),
+    train=dict(pipeline=train_pipeline),
     val=dict(pipeline=test_pipeline),
     test=dict(pipeline=test_pipeline),
 )
