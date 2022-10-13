@@ -18,25 +18,6 @@ model = dict(
         use_checkpoint=True,
     ),
     neck=dict(type="CBFPN", in_channels=[128, 256, 512, 1024]),
-    roi_head=dict(
-        semantic_roi_extractor=dict(
-            type="SingleRoIExtractor",
-            roi_layer=dict(type="RoIAlign", output_size=14, sampling_ratio=0),
-            out_channels=256,
-            featmap_strides=[8],
-        ),
-        semantic_head=dict(
-            type="FusedSemanticHead",
-            num_ins=5,
-            fusion_level=1,
-            num_convs=4,
-            in_channels=256,
-            conv_out_channels=256,
-            num_classes=183,
-            ignore_label=255,
-            loss_weight=0.2,
-        ),
-    ),
     test_cfg=dict(
         rcnn=dict(
             score_thr=0.001,
@@ -54,7 +35,7 @@ img_norm_cfg = dict(
 # augmentation strategy originates from HTC
 train_pipeline = [
     dict(type="LoadImageFromFile"),
-    dict(type="LoadAnnotations", with_bbox=True, with_mask=True),
+    dict(type="LoadAnnotations", with_bbox=True, with_mask=True, with_seg=False),
     dict(
         type="Resize",
         img_scale=[(1600, 400), (1600, 1400)],
