@@ -54,7 +54,7 @@ img_norm_cfg = dict(
 # augmentation strategy originates from HTC
 train_pipeline = [
     dict(type="LoadImageFromFile"),
-    dict(type="LoadAnnotations", with_bbox=True, with_mask=True, with_seg=False),
+    dict(type="LoadAnnotations", with_bbox=True, with_mask=True, with_seg=True),
     dict(
         type="Resize",
         img_scale=[(1600, 400), (1600, 1400)],
@@ -68,7 +68,7 @@ train_pipeline = [
     dict(type="DefaultFormatBundle"),
     dict(
         type="Collect",
-        keys=["img", "gt_bboxes", "gt_masks"],
+        keys=["img", "gt_bboxes", "gt_labels", "gt_masks"],
     ),
 ]
 test_pipeline = [
@@ -91,7 +91,7 @@ test_pipeline = [
 samples_per_gpu = 1
 data = dict(
     samples_per_gpu=samples_per_gpu,
-    train=dict(pipeline=train_pipeline),
+    train=dict(seg_prefix=data_root, pipeline=train_pipeline),
     val=dict(pipeline=test_pipeline),
     test=dict(pipeline=test_pipeline),
 )
