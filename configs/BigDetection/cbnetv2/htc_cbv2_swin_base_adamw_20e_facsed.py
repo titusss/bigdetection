@@ -68,7 +68,7 @@ train_pipeline = [
     dict(type="DefaultFormatBundle"),
     dict(
         type="Collect",
-        keys=["img", "gt_bboxes", "gt_labels", "gt_masks"],
+        keys=["img", "gt_bboxes", "gt_masks"],
     ),
 ]
 test_pipeline = [
