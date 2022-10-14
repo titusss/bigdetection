@@ -69,7 +69,7 @@ test_pipeline = [
     ),
 ]
 
-samples_per_gpu = 12
+samples_per_gpu = 8
 data = dict(
     samples_per_gpu=samples_per_gpu,
     train=dict(pipeline=train_pipeline),
