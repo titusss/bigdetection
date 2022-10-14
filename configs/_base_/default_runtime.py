@@ -13,10 +13,7 @@ log_config = dict(
         #     num_eval_images=100,
         #     bbox_score_thr=0.3,
         # )
-        dict(
-            type="TensorboardLoggerHook",
-            interval=50,
-        ),
+        # dict(type='TensorboardLoggerHook')
     ],
 )
 # yapf:enable
